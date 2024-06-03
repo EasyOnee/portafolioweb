@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  visible: boolean = false;
+  email: string = '';
+  propuesta: string = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
+  showDialog() {
+    this.visible = true;
+  }
+
+  enviarDatos() {
+    const data = {
+      email: this.email,
+      proposal: this.propuesta
+    };
+
+    this.http.post('http://localhost:8080/contacts', data).subscribe(
+      (response) => {
+        console.log('Datos enviados con éxito:', response);
+        this.visible = false; // Close the dialog
+
+      },
+      (error) => {
+        console.error('Error al enviar datos:', error);
+        // Aquí puedes manejar errores, como mostrar un mensaje de error al usuario
+      }
+    );
+  }
 }

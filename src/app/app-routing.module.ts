@@ -7,6 +7,7 @@ import { ProyectsComponent } from './pages/proyects/proyects.component';
 const routes: Routes = [
   { path: '', component: ProfileComponent },
   { path: 'projects', component: ProyectsComponent },
+  { path: 'proyecs', component: ProfileComponent },
   { path: '404', component: NotfoundComponent },
   { path: '**', redirectTo: '/' }
 ];

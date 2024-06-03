@@ -1,70 +1,173 @@
 <div class="navigation">
-    <div class="logo">
-       <a class="no-underline" href="#">
-       Instagram    
-       </a>
-    </div>
-    <div class="navigation-search-container">
-       <i class="fa fa-search"></i>
-       <input class="search-field" type="text" placeholder="Search">
-       <div class="search-container">
-          <div class="search-container-box">
-             <div class="search-results">
-             </div>
-          </div>
-       </div>
-    </div>
-    <div class="navigation-icons">
-       <a href="https://instagram.com/lp05042001" target ="_blank" class="navigation-link">
-       <i class="far fa-compass"></i>
-       </a>
-       <a class="navigation-link notifica">
-          <i class="far fa-heart">
-             <div class="notification-bubble-wrapper">
-                <div class="notification-bubble">
-                   <span class="notification-count">99</span>
+   <div class="logo">
+      <a class="no-underline" href="#">
+         Instagram
+      </a>
+   </div>
+   <div class="navigation-search-container">
+      <i class="fa fa-search"></i>
+      <input class="search-field" type="text" placeholder="Search">
+      <div class="search-container">
+         <div class="search-container-box">
+            <div class="search-results">
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="navigation-icons">
+      <a href="https://instagram.com/lp05042001" target="_blank" class="navigation-link">
+         <i class="far fa-compass"></i>
+      </a>
+      <a class="navigation-link notifica">
+         <i class="far fa-heart">
+            <div class="notification-bubble-wrapper">
+               <div class="notification-bubble">
+                  <span class="notification-count">99</span>
+               </div>
+            </div>
+         </i>
+      </a>
+      <a href="https://instagram.com/lp05042001" class="navigation-link">
+         <i class="far fa-user-circle"></i>
+      </a>
+      <a href="https://instagram.com/lp05042001" id="signout" class="navigation-link">
+         <i class="fas fa-sign-out-alt"></i>
+      </a>
+   </div>
+</div>
+<main>
+   <div>
+      <div class="profile-container">
+         <div class="profile-header">
+            <div class="profile-image">
+               <img src="../../../assets/perfil/peraza.jpeg" alt="Profile Image">
+            </div>
+            <div class="profile-details">
+               <div class="profile-username">
+                  <h1>Luis Peraza</h1>
+                  <button class="edit-profile-button mr-3 br-2 rounded " (click)="showDialog()">Contact Profile</button>
+                  <i class="fas fa-cog settings-icon hidde-fa"></i>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-3">
+                     <p class="text-left stats"><strong>18</strong> posts</p>
+                  </div>
+                  <div class="col-4">
+                     <p class="text-left stats"><strong>3,535</strong> followers</p>
+
+                  </div>
+                  <div class="col-5">
+                     <p class="text-left stats"><strong>1,055</strong> following</p>
+                  </div>
+                  <div class="ml-3">
+                     <p class="text-left">Soy un programador apasionado y comprometido con la creación de soluciones
+                        innovadoras. Me destaco por mi capacidad para resolver problemas de manera eficiente y por mi
+                        atención al detalle.
+                        Tengo experiencia en una amplia gama de lenguajes de programación y tecnologías, lo que me
+                        permite adaptarme rápidamente a nuevos desafíos y entornos de trabajo.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container m-3 p-3 skills">
+            <div class="d-flex justify-content-start">
+               <img src="../../../assets/logos/csharp.png" class="rounded-circle img-fluid p-1 img-size-80">
+               <img src="../../../assets/logos/boostrap.jpeg" class="rounded-circle img-fluid p-1 img-size-80">
+               <img src="../../../assets/logos/javascript.png" class="rounded-circle img-fluid p-1 img-size-80">
+               <img src="../../../assets/logos/kangular.png" class="rounded-circle img-fluid p-1 img-size-80">
+               <img src="../../../assets/logos/node.webp" class="rounded-circle img-fluid p-1 img-size-80">
+               <img src="../../../assets/logos/react.png" class="rounded-circle img-fluid p-1 img-size-80">
+               <img src="../../../assets/logos/Typescript.png" class="rounded-circle img-fluid p-1 img-size-80">
+           </div>
+         </div>
+         <hr class="m-1 division">
+         <div class="upper-case d-flex justify-content-center">
+            <div class="m-4">
+               <a class="nav-proyect" href="#">PORTAFOLIO</a>
+            </div>
+            <div class="m-4">
+               <a class="nav-proyect" href="#">GUARDADOS</a>
+            </div>
+            <div class="m-4">
+               <a class="nav-proyect" href="#">ETIQUETAS</a>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-6 col-md-4 p-1">
+                  <a href="#">
+                     <div class="insta-img" style="background-image: url('../../../assets/background/Gymtrack.png');"></div>
+                  </a>
+               </div>
+                <div class="col-6 col-md-4 p-1">
+                  <a href="https://paytrack-1fe6c.web.app/login">
+                     <div class="insta-img" style="background-image: url('../../../assets/background/paytrackk.png');"></div>
+
+                  </a>
                 </div>
-             </div>
-          </i>
-       </a>
-       <a href="https://instagram.com/lp05042001" class="navigation-link">
-       <i class="far fa-user-circle"></i>
-       </a>
-       <a href="https://instagram.com/lp05042001" id="signout" class="navigation-link">
-       <i class="fas fa-sign-out-alt"></i>
-       </a>
-    </div>
- </div>
- <main>
-    <div>
-        <div class="profile-container">
-            <div class="profile-header">
-                <div class="profile-image">
-                    <img src="../../../assets/perfil/peraza.jpeg" alt="Profile Image">
+                <div class="col-6 col-md-4 p-1">
+                  <a href="#">
+                     <div class="insta-img" style="background-image: url('../../../assets/background/AFPS.png');"></div>
+
+                  </a>
                 </div>
-                <div class="profile-details">
-                    <div class="profile-username">
-                        <h1>Luis Peraza</h1>
-                        <button class="edit-profile-button mr-3 br-2 rounded ">Contact Profile</button>
-                        <i class="fas fa-cog settings-icon hidde-fa"></i>
-                    </div>
-                  <div class="row mt-3">
-                     <div class="col-3">
-                        <p class="text-left stats"><strong>18</strong> posts</p>
-                     </div>
-                     <div class="col-4">
-                        <p class="text-left stats"><strong>3,535</strong> followers</p>
-                        
-                    </div>
-                     <div class="col-5">
-                        <p class="text-left stats"><strong>1,055</strong> following</p>
-                     </div>
-                    <div class="ml-3">
-                        <p class="text-left">Soy un programador apasionado y comprometido con la creación de soluciones innovadoras. Me destaco por mi capacidad para resolver problemas de manera eficiente y por mi atención al detalle. 
-                           Tengo experiencia en una amplia gama de lenguajes de programación y tecnologías, lo que me permite adaptarme rápidamente a nuevos desafíos y entornos de trabajo.</p>
-                    </div>
+                <div class="col-6 col-md-4 p-1">
+                  <a href="#">
+                     <div class="insta-img" style="background-image: url('../../../assets/background/Attendance.png');"></div>
+
+                  </a>
+                </div>
+                <div class="col-6 col-md-4 p-1">
+                  <a href="#">
+                     <div class="insta-img" style="background-image: url('../../../assets/background/paytrackk.jpg');"></div>
+
+                  </a>
+                </div>
+                <div class="col-6 col-md-4 p-1">
+                  <a href="#">
+                     <div class="insta-img" style="background-image: url('../../../assets/background/paytrackk.jpg');"></div>
+
+                  </a>
                 </div>
             </div>
         </div>
-    </div>
-    
+      </div>
+       
+      
+      <p-dialog header="Update Information" [(visible)]="visible">
+         <ng-template pTemplate="header">
+           <div class="p-grid p-justify-between p-align-center">
+             <div class="p-col">
+               <span class="font-bold white-space-nowrap">
+                 Contacto
+               </span>
+             </div>
+             <div class="p-col">
+               <span class="p-text-secondary">Cualquier propuesta será replicada.</span>
+             </div>
+           </div>
+         </ng-template>
+         <div class="p-grid p-dir-row p-fluid">
+           <div class="p-col-12 p-md-6">
+             <div class="p-field">
+               <label for="email" class="font-semibold">Email</label>
+               <input pInputText id="email" class="p-inputtext p-component" autocomplete="on" [(ngModel)]="email" />
+             </div>
+           </div>
+           <div class="p-col-12 p-md-6 mt-3">
+             <div class="p-field">
+               <label for="comments" class="font-semibold">Propuesta</label>
+               <textarea pInputTextarea id="comments" class="p-inputtext p-component" rows="5" [(ngModel)]="propuesta"></textarea>
+             </div>
+           </div>
+         </div>
+         <ng-template pTemplate="footer">
+           <div class="p-grid p-align-center">
+             <div class="p-col">
+               <p-button label="Enviar" [outlined]="true" styleClass="p-button-secondary" (click)="enviarDatos()"></p-button>
+             </div>
+           </div>
+         </ng-template>
+       </p-dialog>
+       
+     
