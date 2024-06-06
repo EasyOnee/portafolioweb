@@ -1,212 +1,206 @@
 <div class="navigation">
    <div class="logo">
-      <a class="no-underline" href="#">
-         Instagram
-      </a>
+     <a class="no-underline" href="#">
+       Instagram
+     </a>
    </div>
    <div class="navigation-search-container">
-      <i class="fa fa-search"></i>
-      <input class="search-field" type="text" placeholder="Search">
-      <div class="search-container">
-         <div class="search-container-box">
-            <div class="search-results">
-            </div>
+     <i class="fa fa-search"></i>
+     <input class="search-field" type="text" placeholder="Search">
+     <div class="search-container">
+       <div class="search-container-box">
+         <div class="search-results">
          </div>
-      </div>
+       </div>
+     </div>
    </div>
-   <div class="navigation-icons" *ngFor="let profile of profiles">
-      <a href="https://instagram.com/lp05042001" target="_blank" class="navigation-link">
-         <i class="far fa-compass"></i>
-      </a>
-      <a class="navigation-link notifica">
-         <i class="far fa-heart">
-            <div class="notification-bubble-wrapper">
-               <div class="notification-bubble">
-                  <span class="notification-count">99</span>
-               </div>
-            </div>
-         </i>
-      </a>
-      <a (click)="editProfile(profile)" class="navigation-link">
-         <i class="far fa-user-circle"></i>
-      </a>
-      <a href="https://instagram.com/lp05042001" id="signout" class="navigation-link">
-         <i class="fas fa-sign-out-alt"></i>
-      </a>
+   <div class="navigation-icons">
+     <a href="https://instagram.com/lp05042001" target="_blank" class="navigation-link">
+       <i class="far fa-compass"></i>
+     </a>
+     <a class="navigation-link notifica">
+       <i class="far fa-heart">
+         <div class="notification-bubble-wrapper">
+           <div class="notification-bubble">
+             <span class="notification-count">99</span>
+           </div>
+         </div>
+       </i>
+     </a>
+     <a (click)="editProfile()" class="navigation-link">
+       <i class="far fa-user-circle"></i>
+     </a>
+     <a href="https://instagram.com/lp05042001" id="signout" class="navigation-link">
+       <i class="fas fa-sign-out-alt"></i>
+     </a>
    </div>
-</div>
-<main>
-   <div>
-      <div class="profile-container" *ngFor="let profile of profiles">
-         <div class="profile-header">
-            <div class="profile-image">
-               <img src="../../../assets/perfil/peraza.jpeg" alt="Profile Image">
-            </div>
-            <div class="profile-details">
-               <div class="profile-username">
-                  <h1> {{ profile.firstName }} {{ profile.lastName }}</h1>
-                  <button class="edit-profile-button mr-3 br-2 rounded " (click)="showDialog()">Contact Profile</button>
-                  <i class="fas fa-cog settings-icon hidde-fa"></i>
-               </div>
-               <div class="row mt-3">
-                  <div class="col-3">
-                     <p class="text-left stats"><strong>18</strong> posts</p>
-                  </div>
-                  <div class="col-4">
-                     <p class="text-left stats"><strong>3,535</strong> followers</p>
-
-                  </div>
-                  <div class="col-5">
-                     <p class="text-left stats"><strong>1,055</strong> following</p>
-                  </div>
-                  <div class="ml-3">
-                     <p class="text-left"> {{ profile.description}} </p>
-
-                     <h6 class="text-left">Fecha Nac. {{ profile.dateOfBirth }}</h6>
-                  </div>
-               </div>
-            </div>
+ </div>
+ <main>
+   <div *ngIf="selectedProfile">
+     <div class="profile-container">
+       <div class="profile-header">
+         <div class="profile-image">
+           <img src="../../../assets/perfil/peraza.jpeg" alt="Profile Image">
          </div>
-         <div class="container m-3 p-3 skills">
-            <div class="d-flex justify-content-start">
-               <img src="../../../assets/logos/csharp.png" class="rounded-circle img-fluid p-1 img-size-80">
-               <img src="../../../assets/logos/boostrap.jpeg" class="rounded-circle img-fluid p-1 img-size-80">
-               <img src="../../../assets/logos/javascript.png" class="rounded-circle img-fluid p-1 img-size-80">
-               <img src="../../../assets/logos/kangular.png" class="rounded-circle img-fluid p-1 img-size-80">
-               <img src="../../../assets/logos/node.webp" class="rounded-circle img-fluid p-1 img-size-80">
-               <img src="../../../assets/logos/react.png" class="rounded-circle img-fluid p-1 img-size-80">
-               <img src="../../../assets/logos/Typescript.png" class="rounded-circle img-fluid p-1 img-size-80">
+         <div class="profile-details">
+           <div class="profile-username">
+             <h1> {{ selectedProfile.firstName }} {{ selectedProfile.lastName }}</h1>
+             <button class="edit-profile-button mr-3 br-2 rounded" (click)="showDialog()">Contact Profile</button>
+             <i class="fas fa-cog settings-icon hidde-fa"></i>
+           </div>
+           <div class="row mt-3">
+             <div class="col-3">
+               <p class="text-left stats"><strong>18</strong> posts</p>
+             </div>
+             <div class="col-4">
+               <p class="text-left stats"><strong>3,535</strong> followers</p>
+             </div>
+             <div class="col-5">
+               <p class="text-left stats"><strong>1,055</strong> following</p>
+             </div>
+             <div class="ml-3">
+               <p class="text-left"> {{ selectedProfile.description }} </p>
+               <h6 class="text-left">Fecha Nac. {{ selectedProfile.dateOfBirth }}</h6>
+             </div>
            </div>
          </div>
-         <hr class="m-1 division">
-         <div class="upper-case d-flex justify-content-center">
-            <div class="m-4">
-               <a class="nav-proyect" href="#">PORTAFOLIO</a>
-            </div>
-            <div class="m-4">
-               <a class="nav-proyect" href="#">GITHUB</a>
-            </div>
-            <div class="m-4">
-               <a class="nav-proyect" href="#">COMMITS</a>
-            </div>
+       </div>
+       <div class="container m-3 p-3 skills">
+         <div class="d-flex justify-content-start">
+           <img src="../../../assets/logos/csharp.png" class="rounded-circle img-fluid p-1 img-size-80">
+           <img src="../../../assets/logos/boostrap.jpeg" class="rounded-circle img-fluid p-1 img-size-80">
+           <img src="../../../assets/logos/javascript.png" class="rounded-circle img-fluid p-1 img-size-80">
+           <img src="../../../assets/logos/kangular.png" class="rounded-circle img-fluid p-1 img-size-80">
+           <img src="../../../assets/logos/node.webp" class="rounded-circle img-fluid p-1 img-size-80">
+           <img src="../../../assets/logos/react.png" class="rounded-circle img-fluid p-1 img-size-80">
+           <img src="../../../assets/logos/Typescript.png" class="rounded-circle img-fluid p-1 img-size-80">
          </div>
-         <div class="container">
-            <div class="row">
-               <div class="col-6 col-md-4 p-1">
-                  <a href="https://www.youtube.com/watch?v=KpBc8J1KNhI&t=0s&ab_channel=LuisPeraza">
-                     <div class="insta-img" style="background-image: url('../../../assets/background/Gymtrack.png');"></div>
-                  </a>
-               </div>
-                <div class="col-6 col-md-4 p-1">
-                   <a href="https://paytrack-1fe6c.web.app/login">
-                      <div class="insta-img" style="background-image: url('../../../assets/background/paytrackk.png');"></div>
-                      
-                     </a>
-                  </div>
-                  <div class="col-6 col-md-4 p-1">
-                     <a href="https://attendancetrack.web.app/login?returnUrl=%2Fdashboard">
-                        <div class="insta-img" style="background-image: url('../../../assets/background/Attendance.png');"></div>
-                     </a>
-                  </div>
-                  <div class="col-6 col-md-4 p-1">
-                     <a href="#">
-                        <div class="insta-img" style="background-image: url('../../../assets/background/AFPS.png');"></div>
-   
-                  </a>
-                     
-               </div>
-               <div class="col-6 col-md-4 p-1">
-                  <a href="#">
-                     <div class="insta-img" style="background-image: url('');"></div>
-                     
-                  </a>
-               </div>
-               <div class="col-6 col-md-4 p-1">
-                  <a href="#">
-                     <div class="insta-img" style="background-image: url('');"></div>
-
-                  </a>
-                </div>
-            </div>
-        </div>
+       </div>
+       <hr class="m-1 division">
+       <div class="upper-case d-flex justify-content-center">
+         <div class="m-4">
+           <a class="nav-proyect" (click)="toggleRepos()">PORTAFOLIO</a>
+         </div>
+         <div class="m-4">
+           <a class="nav-proyect" (click)="toggleRepos()">REPOSITORIOS</a>
+         </div>
+         <div class="m-4">
+           <a class="nav-proyect" href="#">REELS</a>
+         </div>
+       </div>
+       <div *ngIf="showRepos">
+         <app-proyects></app-proyects>
       </div>
-       
-      
-      <p-dialog header="Update Information" [(visible)]="visible">
-         <ng-template pTemplate="header">
-           <div class="p-grid p-justify-between p-align-center">
-             <div class="p-col">
-               <span class="font-bold white-space-nowrap">
-                 Contacto
-               </span>
-             </div>
-             <div class="p-col">
-               <span class="p-text-secondary">Cualquier propuesta será replicada.</span>
-             </div>
+
+       <div class="container" *ngIf="!showRepos">
+         <div class="row">
+           <div class="col-6 col-md-4 p-1">
+             <a href="https://www.youtube.com/watch?v=KpBc8J1KNhI&t=0s&ab_channel=LuisPeraza">
+               <div class="insta-img" style="background-image: url('../../../assets/background/Gymtrack.png');"></div>
+             </a>
            </div>
-         </ng-template>
-         <div class="p-grid p-dir-row p-fluid">
-           <div class="p-col-12 p-md-6">
-             <div class="p-field">
-               <label for="email" class="font-semibold">Email</label>
-               <input pInputText id="email" class="p-inputtext p-component" autocomplete="on" [(ngModel)]="email" />
-             </div>
+           <div class="col-6 col-md-4 p-1">
+             <a href="https://paytrack-1fe6c.web.app/login">
+               <div class="insta-img" style="background-image: url('../../../assets/background/paytrackk.png');"></div>
+             </a>
            </div>
-           <div class="p-col-12 p-md-6 mt-3">
-             <div class="p-field">
-               <label for="comments" class="font-semibold">Propuesta</label>
-               <textarea pInputTextarea id="comments" class="p-inputtext p-component" rows="5" [(ngModel)]="projectProposal"></textarea>
-             </div>
+           <div class="col-6 col-md-4 p-1">
+             <a href="https://attendancetrack.web.app/login?returnUrl=%2Fdashboard">
+               <div class="insta-img" style="background-image: url('../../../assets/background/Attendance.png');"></div>
+             </a>
            </div>
-         </div>
-         <ng-template pTemplate="footer">
-           <div class="p-grid p-align-center">
-             <div class="p-col">
-               <button class="btn btn-primary" (click)="enviarDatos()">Enviar</button>
-             </div>
+           <div class="col-6 col-md-4 p-1">
+             <a href="#">
+               <div class="insta-img" style="background-image: url('../../../assets/background/AFPS.png');"></div>
+             </a>
            </div>
-         </ng-template>
-       </p-dialog>
-       
-       <p-dialog header="User Profiles" [(visible)]="visibleProfile">
-         <ng-template pTemplate="header">
-           <span class="font-bold white-space-nowrap">Editar Perfil</span>
-         </ng-template>
-         <div *ngIf="selectedProfile" class="p-grid p-dir-row p-fluid">
-           <div class="p-col-12 p-md-6">
-             <div class="p-field">
-               <label for="firstName" class="font-semibold">Nombre</label>
-               <input pInputText id="firstName" class="p-inputtext p-component" [(ngModel)]="selectedProfile.firstName" />
-             </div>
+           <div class="col-6 col-md-4 p-1">
+             <a href="#">
+               <div class="insta-img" style="background-image: url('');"></div>
+             </a>
            </div>
-           <div class="p-col-12 p-md-6 mt-3">
-             <div class="p-field">
-               <label for="lastName" class="font-semibold">Apellido</label>
-               <input pInputText id="lastName" class="p-inputtext p-component" [(ngModel)]="selectedProfile.lastName" />
-             </div>
-           </div>
-           <div class="p-col-12 p-md-6 mt-3">
-             <div class="p-field">
-               <label for="dateOfBirth" class="font-semibold">Fecha de Nacimiento</label>
-               <input type="date" id="dateOfBirth" class="p-inputtext p-component" [(ngModel)]="selectedProfile.dateOfBirth" />
-             </div>
-           </div>
-           <div class="p-col-12 p-md-6 mt-3">
-             <div class="p-field">
-               <label for="description" class="font-semibold">Descripción</label>
-               <textarea pInputTextarea id="description" class="p-inputtext p-component" rows="5" [(ngModel)]="selectedProfile.description"></textarea>
-             </div>
+           <div class="col-6 col-md-4 p-1">
+             <a href="#">
+               <div class="insta-img" style="background-image: url('');"></div>
+             </a>
            </div>
          </div>
-         <ng-template pTemplate="footer">
-           <div class="p-grid p-align-center">
-             <div class="p-col">
-               <button class="btn btn-primary" (click)="saveProfile()">Guardar</button>
-               <button class="btn btn-secondary" (click)="visibleProfile = false">Cerrar</button>
-             </div>
-           </div>
-         </ng-template>
-       </p-dialog>
-      
-       
-     
+       </div>
+     </div>
+   </div>
+ 
+ 
+   <p-dialog header="Update Information" [(visible)]="visible">
+     <ng-template pTemplate="header">
+       <div class="p-grid p-justify-between p-align-center">
+         <div class="p-col">
+           <span class="font-bold white-space-nowrap">Contacto</span>
+         </div>
+         <div class="p-col">
+           <span class="p-text-secondary">Cualquier propuesta será replicada.</span>
+         </div>
+       </div>
+     </ng-template>
+     <div class="p-grid p-dir-row p-fluid">
+       <div class="p-col-12 p-md-6">
+         <div class="p-field">
+           <label for="email" class="font-semibold">Email</label>
+           <input pInputText id="email" class="p-inputtext p-component" autocomplete="on" [(ngModel)]="email" />
+         </div>
+       </div>
+       <div class="p-col-12 p-md-6 mt-3">
+         <div class="p-field">
+           <label for="comments" class="font-semibold">Propuesta</label>
+           <textarea pInputTextarea id="comments" class="p-inputtext p-component" rows="5" [(ngModel)]="projectProposal"></textarea>
+         </div>
+       </div>
+     </div>
+     <ng-template pTemplate="footer">
+       <div class="p-grid p-align-center">
+         <div class="p-col">
+           <button class="btn btn-primary" (click)="enviarDatos()">Enviar</button>
+         </div>
+       </div>
+     </ng-template>
+   </p-dialog>
+ 
+   <p-dialog header="User Profiles" [(visible)]="visibleProfile">
+     <ng-template pTemplate="header">
+       <span class="font-bold white-space-nowrap">Editar Perfil</span>
+     </ng-template>
+     <div *ngIf="selectedProfile" class="p-grid p-dir-row p-fluid">
+       <div class="p-col-12 p-md-6">
+         <div class="p-field">
+           <label for="firstName" class="font-semibold">Nombre</label>
+           <input pInputText id="firstName" class="p-inputtext p-component" [(ngModel)]="selectedProfile.firstName" />
+         </div>
+       </div>
+       <div class="p-col-12 p-md-6 mt-3">
+         <div class="p-field">
+           <label for="lastName" class="font-semibold">Apellido</label>
+           <input pInputText id="lastName" class="p-inputtext p-component" [(ngModel)]="selectedProfile.lastName" />
+         </div>
+       </div>
+       <div class="p-col-12 p-md-6 mt-3">
+         <div class="p-field">
+           <label for="dateOfBirth" class="font-semibold">Fecha de Nacimiento</label>
+           <input type="date" id="dateOfBirth" class="p-inputtext p-component" [(ngModel)]="selectedProfile.dateOfBirth" />
+         </div>
+       </div>
+       <div class="p-col-12 p-md-6 mt-3">
+         <div class="p-field">
+           <label for="description" class="font-semibold">Descripción</label>
+           <textarea pInputTextarea id="description" class="p-inputtext p-component" rows="5" [(ngModel)]="selectedProfile.description"></textarea>
+         </div>
+       </div>
+     </div>
+     <ng-template pTemplate="footer">
+       <div class="p-grid p-align-center">
+         <div class="p-col">
+           <button class="btn btn-primary" (click)="saveProfile()">Guardar</button>
+         </div>
+       </div>
+     </ng-template>
+   </p-dialog>
+ </main>
+ 

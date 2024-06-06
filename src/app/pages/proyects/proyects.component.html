@@ -1,3 +1,25 @@
-<p>
-  proyects works!
-</p>
+<div class="container my-4">
+  <h2 class="text-center">Mis Repositorios de GitHub</h2>
+  <div *ngIf="repos.length > 0" class="row">
+    <div *ngFor="let repo of repos" class="col-12 col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <div class="text-center mb-3">
+            <img src="../../../assets/logos/giuthub.png" alt="Logo GitHub" class="img-fluid w-25 img-thumbnail">
+          </div>
+          <h5 class="card-title text-center">{{ repo.name }}</h5>
+          <p class="card-text">{{ repo.description || 'Sin descripción' }}</p>
+          <ul class="list-unstyled">
+            <li><strong>Lenguaje:</strong> {{ repo.language || 'No especificado' }}</li>
+            <li><strong>Estrellas:</strong> {{ repo.stargazers_count }}</li>
+            <li><strong>Forks:</strong> {{ repo.forks_count }}</li>
+          </ul>
+          <a [href]="repo.html_url" target="_blank" class="mt-auto btn btn-info">Ver Repositorio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="repos.length === 0" class="text-center">
+    <p>No se encontraron repositorios.</p>
+  </div>
+</div>

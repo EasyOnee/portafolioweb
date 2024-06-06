@@ -11,13 +11,14 @@ export class ProfileComponent implements OnInit {
   visible: boolean = false;
   email: string = '';
   projectProposal: string = '';
-  profiles: any[] = [];
+
   selectedProfile: any = null;
+  showRepos: boolean = false;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.getProfiles(); // Obtener perfiles al iniciar el componente
+    this.getProfileById(1);
   }
 
   enviarDatos() {
@@ -25,32 +26,44 @@ export class ProfileComponent implements OnInit {
       email: this.email,
       projectProposal: this.projectProposal
     };
+
+    this.http.post('http://localhost:8080/contacts', data).subscribe(
+      (response) => {
+        console.log('Datos enviados con éxito:', response);
+        this.visible = false; 
+      },
+      (error) => {
+        console.error('Error al enviar datos:', error);
+      }
+    );
   }
+
   showDialogProfile() {
     this.visibleProfile = true;
   }
-  
+
   showDialog() {
     this.visible = true;
   }
 
-  getProfiles() {
-    this.http.get('http://localhost:8080/profile').subscribe(
+  getProfileById(id: number) {
+    this.http.get(`http://localhost:8080/profile/${id}`).subscribe(
       (response: any) => {
-        this.profiles = response.map((profile: any) => {
-          profile.dateOfBirth = this.formatDateForInput(profile.dateOfBirth);
-          return profile;
-        });
+        this.selectedProfile = {
+          ...response,
+          dateOfBirth: this.formatDateForInput(response.dateOfBirth)
+        };
+        console.log('Perfil recibido:', this.selectedProfile);
       },
       (error) => {
-        console.error('Error al obtener perfiles:', error);
+        console.error('Error al obtener el perfil:', error);
       }
     );
   }
 
   formatDateForInput(dateString: string): string {
     const date = new Date(dateString);
-    return date.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+    return date.toISOString().split('T')[0];
   }
 
   formatDateForDisplay(dateString: string): string {
@@ -65,24 +78,26 @@ export class ProfileComponent implements OnInit {
     return `${day}/${month}/${year}`;
   }
 
-  editProfile(profile: any) {
-    this.selectedProfile = { ...profile }; // Clona el perfil para editar
-    this.visibleProfile = true; // Muestra el diálogo de edición
+  editProfile() {
+    this.showDialogProfile();
   }
 
   saveProfile() {
     if (this.selectedProfile) {
       this.http.put(`http://localhost:8080/profile/${this.selectedProfile.id}`, this.selectedProfile).subscribe(
         (response) => {
-          this.getProfiles(); // Actualizar la lista de perfiles
-          this.visibleProfile = false; // Cerrar el diálogo
+          this.getProfileById(1);
+          this.visibleProfile = false;
         },
         (error) => {
           console.error('Error al actualizar el perfil:', error);
-          // Aquí puedes manejar errores, como mostrar un mensaje de error al usuario
         }
       );
     }
+  }
+
+  toggleRepos() {
+    this.showRepos = !this.showRepos;
   }
   
 }
