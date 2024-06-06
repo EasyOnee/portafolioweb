@@ -248,6 +248,12 @@ main {
     height: 80px;
   }
 
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
 @media only screen and (max-width: 578px) {
 	.stats {
 		font-size: 4vw;
